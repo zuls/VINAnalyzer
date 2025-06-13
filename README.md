@@ -6,13 +6,12 @@
 ![SwiftUI](https://img.shields.io/badge/SwiftUI-007AFF?style=for-the-badge&logo=swift&logoColor=white)
 ![Vision](https://img.shields.io/badge/Vision-FF2D55?style=for-the-badge&logo=apple&logoColor=white)
 ![AVFoundation](https://img.shields.io/badge/AVFoundation-007AFF?style=for-the-badge&logo=apple&logoColor=white)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
 A robust and user-friendly iOS application built with **SwiftUI** that allows users to quickly scan and validate Vehicle Identification Numbers (VINs) using their device's camera. It includes comprehensive VIN validation, camera permission handling, an intuitive scanning overlay, and manual VIN entry capabilities.
 
 ---
 
-## ✨ Features
+## Features
 
 * **VIN Barcode Scanning:** Utilizes AVFoundation and Vision framework for efficient and accurate barcode detection (Code 39, Code 93, Code 128).
 * **Comprehensive VIN Validation:** Implements the official VIN check digit algorithm to ensure scanned VINs are authentic and correctly formatted.
@@ -26,7 +25,7 @@ A robust and user-friendly iOS application built with **SwiftUI** that allows us
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 *(Ideally, you would replace these with actual screenshots of your app)*
 
@@ -36,7 +35,7 @@ A robust and user-friendly iOS application built with **SwiftUI** that allows us
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 The application is structured into several key components:
 
@@ -52,17 +51,17 @@ The application is structured into several key components:
 
 ---
 
-## 🛠️ Installation & Usage
+## Installation & Usage
 
 To run this project, you'll need **Xcode 14** or newer.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/VINScan.git](https://github.com/your-username/VINScan.git)
-    cd VINScan
+    git clone https://github.com/zuls/VINAnalyzer.git
+    cd VINAnalyzer
     ```
 2.  **Open in Xcode:**
-    Open the `VINScanner.xcodeproj` file in Xcode.
+    Open the `VINAnalyzer.xcodeproj` file in Xcode.
 3.  **Build and Run:**
     Select your target device (an iOS simulator or a physical device) and click the "Run" button.
 
@@ -70,13 +69,6 @@ To run this project, you'll need **Xcode 14** or newer.
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you have suggestions for improvements, bug fixes, or new features, please feel free to open an [issue](https://github.com/your-username/VINScan/issues) or submit a [pull request](https://github.com/your-username/VINScan/pulls).
+Contributions are welcome! If you have suggestions for improvements, bug fixes, or new features, please feel free to open an [issue](https://github.com/zuls/VINAnalyzer/issues) or submit a [pull request](https://github.com/zuls/VINAnalyzer/pulls).
 
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
 ````
