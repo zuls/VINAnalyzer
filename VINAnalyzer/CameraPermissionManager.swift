@@ -5,14 +5,29 @@
 //  Created by Zularbine Kamal on 6/13/25.
 //
 
+import AVFoundation
 import SwiftUI
 
-struct CameraPermissionManager: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class CameraPermissionManager: ObservableObject {
+    @Published var permissionStatus: AVAuthorizationStatus = .notDetermined
+    @Published var showPermissionAlert = false
+    
+    init() {
+        checkPermissionStatus()
     }
-}
-
-#Preview {
-    CameraPermissionManager()
+    
+    func checkPermissionStatus() {
+        permissionStatus = AVCaptureDevice.authorizationStatus(for: .video)
+    }
+    
+    func requestCameraAccess() {
+        AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
+            DispatchQueue.main.async {
+                self?.permissionStatus = granted ? .authorized : .denied
+                if !granted {
+                    self?.showPermissionAlert = true
+                }
+            }
+        }
+    }
 }
