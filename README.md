@@ -27,10 +27,10 @@ A robust and user-friendly iOS application built with **SwiftUI** that allows us
 
 ## Screenshots
 
-*(Ideally, you would replace these with actual screenshots of your app)*
 
-| Scan Screen | Scanned VIN Display | Manual Entry | 
-|:---:|:---:|:---:|
+
+| Scan Screen | 
+|:---:|
 | ![IMG_B7F3280ED968-1](https://github.com/user-attachments/assets/cd57c2c6-f78d-43b4-be2b-d0b2586a748d)
  |  ![IMG_249C191CECCF-1](https://github.com/user-attachments/assets/a3e22aa0-e15f-402b-8b68-204dba783d6f)
 | ![IMG_2E24CD66D49D-1](https://github.com/user-attachments/assets/6017b8c0-672c-41ba-9ce9-3a678339acfa)
