@@ -65,7 +65,7 @@ class ScannerViewModel: ObservableObject {
     private func handleScanTimeout() {
         DispatchQueue.main.async {
             self.scanningStatus = .timeout
-            self.errorMessage = "Scanning timeout. Please try again or enter VIN manually."
+            self.errorMessage = "Scanning timeout. Try again or enter VIN manually."
             self.showError = true
             self.stopScanning()
         }
