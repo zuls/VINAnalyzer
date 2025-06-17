@@ -150,6 +150,7 @@ class CameraViewController: UIViewController {
         // Configure text recognition for better accuracy
         textRequest.recognitionLevel = .accurate
         textRequest.usesLanguageCorrection = false
+        textRequest.revision = VNRecognizeTextRequest.currentRevision
         
         let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .up)
         do {
