@@ -79,7 +79,7 @@ struct ScannerOverlayView: View {
     private var instructionText: String {
         switch viewModel.scanningStatus {
         case .ready:
-            return "Position the VIN barcode within the frame"
+            return "Position the VIN barcode or VIN number within the frame"
         case .scanning:
             return "Scanning... Hold steady"
         case .success:

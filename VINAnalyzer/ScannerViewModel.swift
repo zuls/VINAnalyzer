@@ -58,6 +58,15 @@ class ScannerViewModel: ObservableObject {
                 self.scanningStatus = .success
                 self.stopScanning()
             }
+            return
+        }
+        if let extractedVIN = VINValidator.extractVINFromText(cleanedCode) {
+            DispatchQueue.main.async {
+                self.scannedVIN = VINValidator.formatVIN(extractedVIN)
+                self.scanningStatus = .success
+                self.stopScanning()
+            }
+            return
         }
         // Continue scanning if VIN is invalid - don't stop for non-VIN barcodes
     }

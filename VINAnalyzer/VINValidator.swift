@@ -19,6 +19,28 @@ struct VINValidator {
     // Weight factors for VIN check digit calculation
     private static let weightFactors = [8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2]
     
+    static func extractVINFromText(_ text: String) -> String? {
+        let cleanText = text.uppercased().replacingOccurrences(of: " ", with: "")
+        
+        // Look for 17-character sequences that could be VINs
+        let vinPattern = #"[A-HJ-NPR-Z0-9]{17}"#
+        let regex = try? NSRegularExpression(pattern: vinPattern)
+        let range = NSRange(location: 0, length: cleanText.count)
+        
+        let matches = regex?.matches(in: cleanText, range: range) ?? []
+        
+        for match in matches {
+            if let matchRange = Range(match.range, in: cleanText) {
+                let potentialVIN = String(cleanText[matchRange])
+                if isValidVIN(potentialVIN) {
+                    return potentialVIN
+                }
+            }
+        }
+        
+        return nil
+    }
+    
     static func isValidVIN(_ vin: String) -> Bool {
         // Basic format validation
         guard vin.count == 17 else { return false }
@@ -32,6 +54,11 @@ struct VINValidator {
         // Validate character set (alphanumeric only)
         let allowedChars = CharacterSet.alphanumerics
         guard uppercasedVIN.rangeOfCharacter(from: allowedChars.inverted) == nil else { return false }
+        
+        // Additional validation: First character should be a letter or number 1-5
+        let firstChar = uppercasedVIN.first!
+        let validFirstChars = CharacterSet(charactersIn: "12345ABCDEFGHJKLMNPRSTUVWXYZ")
+        guard validFirstChars.contains(firstChar.unicodeScalars.first!) else { return false }
         
         // Perform check digit validation
         return validateCheckDigit(uppercasedVIN)
