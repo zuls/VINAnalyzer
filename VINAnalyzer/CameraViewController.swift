@@ -166,36 +166,36 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
             
             // Perform barcode detection
-            let barcodeRequest = VNDetectBarcodesRequest { [weak self] request, error in
-                if let error = error {
-                    print("Vision error: \(error)")
-                    return
-                }
-                
-                guard let observations = request.results as? [VNBarcodeObservation] else { return }
-                
-                // Look for VIN-compatible barcodes
-                for observation in observations {
-                    if let payload = observation.payloadStringValue,
-                       (observation.symbology == .code39 || observation.symbology == .code128 || observation.symbology == .code93) {
-                        self?.delegate?.didCaptureBarcode(payload)
-                        return
-                    }
-                }
-            }
-            
-            barcodeRequest.symbologies = [.code39, .code128, .code93]
+//            let barcodeRequest = VNDetectBarcodesRequest { [weak self] request, error in
+//                if let error = error {
+//                    print("Vision error: \(error)")
+//                    return
+//                }
+//                
+//                guard let observations = request.results as? [VNBarcodeObservation] else { return }
+//                
+//                // Look for VIN-compatible barcodes
+//                for observation in observations {
+//                    if let payload = observation.payloadStringValue,
+//                       (observation.symbology == .code39 || observation.symbology == .code128 || observation.symbology == .code93) {
+//                        self?.delegate?.didCaptureBarcode(payload)
+//                        return
+//                    }
+//                }
+//            }
+//            
+//            barcodeRequest.symbologies = [.code39, .code128, .code93]
             
             // Perform both barcode and text recognition
-            let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .up)
-            do {
-                try handler.perform([barcodeRequest])
+//            let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .up)
+//            do {
+//                try handler.perform([barcodeRequest])
                 
                 // Also perform text recognition for VIN text
                 self.performTextRecognition(on: pixelBuffer)
-            } catch {
-                print("Vision request failed: \(error)")
-            }
+//            } catch {
+//                print("Vision request failed: \(error)")
+//            }
     }
 }
 

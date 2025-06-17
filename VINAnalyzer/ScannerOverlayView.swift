@@ -38,7 +38,7 @@ struct ScannerOverlayView: View {
                 
                 // Scanning frame
                 ScanningFrameView()
-                    .frame(width: 280, height: 80)
+                    .frame(width: 320, height: 120)
                 
                 Spacer()
                 
@@ -79,7 +79,7 @@ struct ScannerOverlayView: View {
     private var instructionText: String {
         switch viewModel.scanningStatus {
         case .ready:
-            return "Position the VIN barcode or VIN number within the frame"
+            return "Position the VIN number within the frame"
         case .scanning:
             return "Scanning... Hold steady"
         case .success:
